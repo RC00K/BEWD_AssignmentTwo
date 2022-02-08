@@ -1,10 +1,13 @@
 <?php
 require('database.php');
 
-
-$query = 'SELECT A.customerID, C.emailAddress, C.firstName, C.lastName, A.line1, A.city, A.state, A.zipCode, A.phone FROM addresses A
-          INNER JOIN customers C ON A.customerID = C.customerID
-          GROUP BY A.customerID, C.emailAddress, C.firstName, C.lastName, A.line1, A.city, A.state, A.zipCode, A.phone;';// PUT YOUR SQL QUERY HERE
+// PUT YOUR SQL QUERY HERE
+$query = 'SELECT A.customerID, C.emailAddress, C.firstName, C.lastName, 
+            A.line1, A.city, A.state, A.zipCode, A.phone 
+            FROM addresses A
+            INNER JOIN customers C ON A.customerID = C.customerID
+            GROUP BY A.customerID, C.emailAddress, C.firstName, C.lastName, 
+            A.line1, A.city, A.state, A.zipCode, A.phone;';
 // Example: $query = 'SELECT * FROM customers';
 
 $statement = $db->prepare($query);
